@@ -1,0 +1,228 @@
+/* Full-screen container with dark theme */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Fixed header at top */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #bb86fc;
+  text-shadow: 0 0 4px #bb86fc;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 120px; /* Adjusted for header */
+  background-color: #121212;
+  color: #e0e0e0;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+/* Two-column layout for PDF and Audio sections */
+.dropzones {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  background: #1e1e1e;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 195, 0.2);
+  overflow: hidden;
+  border: 1px solid #2c2c2c;
+}
+
+/* Individual upload sections */
+.upload-box {
+  flex: 1;
+  padding: 30px 25px;
+  text-align: center;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+/* Vertical divider */
+.upload-box:first-child {
+  border-right: 1px solid #2c2c2c;
+}
+
+/* Dropzone styling */
+.dropzone {
+  border: 2px dashed #555;
+  padding: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.dropzone:hover {
+  background-color: #333;
+}
+
+/* File name display */
+.file-name {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #bb86fc;
+}
+
+/* Message styles */
+.message {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.loading {
+  color: #03dac6;
+}
+
+.error {
+  background-color: #cf6679;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Result boxes */
+.result-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #2e2e2e;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+.success {
+  background-color: #1b5e20;
+  color: #c8e6c9;
+}
+
+.failure {
+  background-color: #b71c1c;
+  color: #ffccbc;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #0f0f0f;
+  color: #00ffc3;
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  max-height: 400px;
+  overflow-y: auto;
+  display: block;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.data-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #111111;
+  color: #00ffc3;
+  text-shadow: 0 0 4px #00ffc3;
+  z-index: 1;
+}
+
+.data-table th, .data-table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 255, 195, 0.2);
+}
+
+.data-table td:first-child {
+  background-color: #1a1a1a;
+  font-weight: bold;
+  color: #f72585;
+  text-shadow: 0 0 6px #f72585;
+  width: 35%;
+}
+
+.data-table tr {
+  animation: fadeInRow 0.6s ease-in-out;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #121212;
+}
+
+.data-table tr:hover {
+  background-color: #1c1c1c;
+  box-shadow: inset 0 0 10px #00ffc3;
+  transition: 0.2s ease-in-out;
+}
+
+/* Loader Spinner */
+.cyberpunk-loader {
+  border: 4px solid rgba(0, 255, 195, 0.1);
+  border-top: 4px solid #00ffc3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite, glowPulse 1.5s ease-in-out infinite;
+  margin: 20px auto;
+  box-shadow: 0 0 10px #00ffc3;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #00ffc3, 0 0 16px #00ffc3;
+  }
+  50% {
+    box-shadow: 0 0 4px #00ffc3, 0 0 8px #00ffc3;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
